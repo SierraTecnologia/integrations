@@ -5,17 +5,17 @@ namespace Integrations\Connectors\Connector\Jira;
 use Log;
 use App\Models\User;
 
-use Finder\Models\Digital\Code\CodeIssueLink;
+use Fabrica\Models\Code\CodeIssueLink;
 use Casa\Models\Registers\Spent;
 use Casa\Models\Calendar\Estimate;
 use Casa\Models\Calendar\Event;
 
 use Informate\Models\Comment;
 
-use Finder\Models\Digital\Code\Release;
-use Finder\Models\Digital\Code\Issue;
-use Finder\Models\Digital\Code\Field as FieldModel;
-use Finder\Models\Digital\Code\Project as ProjectModel;
+use Fabrica\Models\Code\Release;
+use Fabrica\Models\Code\Issue;
+use Fabrica\Models\Code\Field as FieldModel;
+use Fabrica\Models\Code\Project as ProjectModel;
 
 use JiraRestApi\Project\ProjectService;
 use JiraRestApi\JiraException;

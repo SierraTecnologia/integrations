@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 /**
  * @mixin \Illuminate\Database\Query\Builder
  */
-class IntegrationsInterface extends Builder
+class EloquentBuilder extends Builder
 {
     /**
      * Execute the query as a "select" statement.
