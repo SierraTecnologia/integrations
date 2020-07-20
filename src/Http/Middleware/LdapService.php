@@ -2,7 +2,7 @@
 
 namespace Integrations\Models\Access;
 
-use Boravel\Models\Access;
+use Integrations\Models\Access;
 use App\Models\Role;
 use App\Models\User;
 use Integrations\Models\UserRepo;

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Boravel\Http\Controllers\Webhook;
+namespace Integrations\Http\Controllers\Webhook;
 
 
-use Boravel\Http\Controllers\Controller;
+use Integrations\Http\Controllers\Controller;
 use BotMan\BotMan\BotMan;
 
 class StoreController extends Controller
@@ -16,7 +16,7 @@ class StoreController extends Controller
         auth()->user()->save();
 
         $bot->reply(
-            trans('boravel.webhook.stored', ['url' => auth()->user()->getWebhookUrl()]),
+            trans('integrations.webhook.stored', ['url' => auth()->user()->getWebhookUrl()]),
             ['parse_mode' => 'Markdown']
         );
     }

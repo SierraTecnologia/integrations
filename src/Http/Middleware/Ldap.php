@@ -6,7 +6,7 @@ namespace Integrations\Http\Middleware;
  * Class Ldap
  * An object-orientated thin abstraction wrapper for common PHP LDAP functions.
  * Allows the standard LDAP functions to be mocked for testing.
- * @package Boravel\Services
+ * @package Integrations\Services
  */
 class Ldap
 {
