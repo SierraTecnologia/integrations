@@ -14,7 +14,7 @@ use Config;
 use Route;
 use Illuminate\Routing\Router;
 
-use Support\Traits\Providers\ConsoleTools;
+use Muleta\Traits\Providers\ConsoleTools;
 
 use Integrations\Facades\Integrations as IntegrationsFacade;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -23,6 +23,8 @@ use Illuminate\Contracts\Events\Dispatcher;
 class IntegrationsProvider extends ServiceProvider
 {
     use ConsoleTools;
+
+    const pathVendor = 'sierratecnologia/integrations';
 
     public static $aliasProviders = [
         'Integrations' => \Integrations\Facades\Integrations::class,

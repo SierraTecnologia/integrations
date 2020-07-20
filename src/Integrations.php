@@ -14,13 +14,14 @@ use Config;
 use Request;
 use Session;
 use ReflectionClass;
-
+use Muleta\Packagist\Traits\PackageVersionTrait;
 use Crypto;
 
 class Integrations
 {
-    protected $version;
+    use PackageVersionTrait;
     protected $filesystem;
+    protected $packageName = TransmissorProvider::pathVendor;
 
     /**
      * The current locale, cached in memory
@@ -34,32 +35,5 @@ class Integrations
         $this->filesystem = app(Filesystem::class);
 
         $this->findVersion();
-    }
-
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    protected function findVersion()
-    {
-        if (!is_null($this->version)) {
-            return;
-        }
-
-        if ($this->filesystem->exists(base_path('composer.lock'))) {
-            // Get the composer.lock file
-            $file = json_decode(
-                $this->filesystem->get(base_path('composer.lock'))
-            );
-
-            // Loop through all the packages and get the version of integrations
-            foreach ($file->packages as $package) {
-                if ($package->name == 'sierratecnologia/integrations') {
-                    $this->version = $package->version;
-                    break;
-                }
-            }
-        }
     }
 }
