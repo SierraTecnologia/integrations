@@ -1,10 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Connector\BitBucket;
+namespace Integrations\Connectors\BitBucket;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class BitBucket extends Integration
 {

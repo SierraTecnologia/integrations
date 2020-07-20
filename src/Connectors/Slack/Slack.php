@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Slack;
+namespace Integrations\Connectors\Slack;
 
 use Log;
 // use Stalker\Models\Video;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Slack extends Integration
 {

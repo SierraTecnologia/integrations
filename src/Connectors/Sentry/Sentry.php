@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Sentry;
+namespace Integrations\Connectors\Sentry;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Sentry extends Integration
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Youtube;
+namespace Integrations\Connectors\Youtube;
 
 use Log;
 // use Stalker\Models\Video;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Youtube extends Integration
 {

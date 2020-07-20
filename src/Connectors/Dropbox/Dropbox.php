@@ -1,10 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Dropbox;
+namespace Integrations\Connectors\Dropbox;
 
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Dropbox extends Integration
 {

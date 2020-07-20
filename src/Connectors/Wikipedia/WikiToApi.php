@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Wikipedia;
+namespace Integrations\Connectors\Wikipedia;
 
 use Log;
 use App\Models\User;

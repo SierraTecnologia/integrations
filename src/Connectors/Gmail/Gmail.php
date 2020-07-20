@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Gmail;
+namespace Integrations\Connectors\Gmail;
 
 use Log;
 // use Stalker\Models\Video;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Gmail extends Integration
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Connector\GitHub;
+namespace Integrations\Connectors\GitHub;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class GitHub extends Integration
 {

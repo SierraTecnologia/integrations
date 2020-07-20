@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Xvideos;
+namespace Integrations\Connectors\Xvideos;
 
 use Log;
 // use Stalker\Models\Video;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Xvideos extends Integration
 {

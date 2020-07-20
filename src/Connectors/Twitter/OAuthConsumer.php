@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Twitter;
+namespace Integrations\Connectors\Twitter;
 
 // vim: foldmethod=marker
 

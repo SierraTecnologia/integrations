@@ -1,10 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Googledrive;
+namespace Integrations\Connectors\Googledrive;
 
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Googledrive extends Integration
 {

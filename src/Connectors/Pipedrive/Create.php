@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Pipedrive;
+namespace Integrations\Connectors\Pipedrive;
 
 use Log;
 use App\Models\User;

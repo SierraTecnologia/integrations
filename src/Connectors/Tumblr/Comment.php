@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Tumblr;
+namespace Integrations\Connectors\Tumblr;
 
 use Log;
 use App\Models\User;

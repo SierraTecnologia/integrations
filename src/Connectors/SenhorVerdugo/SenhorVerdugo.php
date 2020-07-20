@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\SenhorVerdugo;
+namespace Integrations\Connectors\SenhorVerdugo;
 
 use App\Models\Model;
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class SenhorVerdugo extends Integration
 {

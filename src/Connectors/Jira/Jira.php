@@ -3,12 +3,12 @@
  * https://github.com/lesstif/php-jira-rest-client
  */
 
-namespace Integrations\Connectors\Connector\Jira;
+namespace Integrations\Connectors\Jira;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 use JiraRestApi\Configuration\ArrayConfiguration;
 
 class Jira extends Integration

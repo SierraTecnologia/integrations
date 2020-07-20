@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\PhotoAcompanhante;
+namespace Integrations\Connectors\PhotoAcompanhante;
 
 use Log;
 use App\Models\User;

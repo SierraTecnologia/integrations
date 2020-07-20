@@ -6,12 +6,12 @@
  * g4...
  */
 
-namespace Integrations\Connectors\Connector\Novare;
+namespace Integrations\Connectors\Novare;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Novare extends Integration
 {

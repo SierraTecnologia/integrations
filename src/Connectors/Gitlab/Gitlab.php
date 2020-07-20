@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Gitlab;
+namespace Integrations\Connectors\Gitlab;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Gitlab extends Integration
 {

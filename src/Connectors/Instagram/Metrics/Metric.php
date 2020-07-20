@@ -1,8 +1,8 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Instagram\Metrics;
+namespace Integrations\Connectors\Instagram\Metrics;
 
-use Integrations\Connectors\Connector\Instagram\Instagram;
+use Integrations\Connectors\Instagram\Instagram;
 
 class Metric extends Instagram
 {

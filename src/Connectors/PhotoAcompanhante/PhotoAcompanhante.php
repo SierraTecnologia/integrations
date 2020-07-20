@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\PhotoAcompanhante;
+namespace Integrations\Connectors\PhotoAcompanhante;
 
 use App\Models\Model;
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class PhotoAcompanhante extends Integration
 {

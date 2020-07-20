@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Jira;
+namespace Integrations\Connectors\Jira;
 
 use Log;
 use App\Models\Project as ProjectModel;

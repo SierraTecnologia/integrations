@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Pipedrive;
+namespace Integrations\Connectors\Pipedrive;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Pipedrive extends Integration
 {

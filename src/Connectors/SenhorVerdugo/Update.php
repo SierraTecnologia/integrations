@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\SenhorVerdugo;
+namespace Integrations\Connectors\SenhorVerdugo;
 
 
 class Update extends SenhorVerdugo

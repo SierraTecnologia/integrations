@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Cloudflare;
+namespace Integrations\Connectors\Cloudflare;
 
 use Log;
 use App\Models\User;

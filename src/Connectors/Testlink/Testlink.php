@@ -5,12 +5,12 @@
  * Equipe de Qa
  */
 
-namespace Integrations\Connectors\Connector\Testlink;
+namespace Integrations\Connectors\Testlink;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Testlink extends Integration
 {

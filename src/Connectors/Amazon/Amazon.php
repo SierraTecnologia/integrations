@@ -1,10 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Amazon;
+namespace Integrations\Connectors\Amazon;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Amazon extends Integration
 {

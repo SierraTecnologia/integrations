@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Instagram;
+namespace Integrations\Connectors\Instagram;
 
 use Log;
 use App\Models\User;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Instagram;
+namespace Integrations\Connectors\Instagram;
 
 use Log;
 use App\Models\User;
 
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Instagram extends Integration
 {

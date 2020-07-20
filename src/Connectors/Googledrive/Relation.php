@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Googledrive;
+namespace Integrations\Connectors\Googledrive;
 
 use Log;
 use App\Models\User;

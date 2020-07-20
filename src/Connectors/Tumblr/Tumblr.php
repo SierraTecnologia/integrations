@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Tumblr;
+namespace Integrations\Connectors\Tumblr;
 
 use Log;
 use App\Models\User;
 
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Tumblr extends Integration
 {

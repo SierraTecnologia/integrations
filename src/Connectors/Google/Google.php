@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Google;
+namespace Integrations\Connectors\Google;
 
 use Log;
 // use Stalker\Models\Video;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Google extends Integration
 {

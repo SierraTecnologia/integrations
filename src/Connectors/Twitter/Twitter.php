@@ -4,13 +4,13 @@
  * https://github.com/laravel-notification-channels/twitter
  */
 
-namespace Integrations\Connectors\Connector\Twitter;
+namespace Integrations\Connectors\Twitter;
 
 use Log;
 use App\Models\User;
 use Abraham\TwitterOAuth\TwitterOAuth;
 
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Twitter extends Integration
 {

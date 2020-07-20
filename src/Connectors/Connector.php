@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector;
+namespace Integrations\Connectors;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
@@ -8,15 +8,15 @@ use App\Models\User;
 
 use Population\Models\Components\Integrations\Token;
 
-use Integrations\Connectors\Connector\Github\Github;
-use Integrations\Connectors\Connector\Amazon\Amazon;
-use Integrations\Connectors\Connector\Gitlab\Gitlab;
-use Integrations\Connectors\Connector\Jira\Jira;
-use Integrations\Connectors\Connector\Novare\Novare;
-use Integrations\Connectors\Connector\Pipedrive\Pipedrive;
-use Integrations\Connectors\Connector\Sentry\Sentry;
-use Integrations\Connectors\Connector\Testlink\Testlink;
-use Integrations\Connectors\Connector\Zoho\Zoho;
+use Integrations\Connectors\Github\Github;
+use Integrations\Connectors\Amazon\Amazon;
+use Integrations\Connectors\Gitlab\Gitlab;
+use Integrations\Connectors\Jira\Jira;
+use Integrations\Connectors\Novare\Novare;
+use Integrations\Connectors\Pipedrive\Pipedrive;
+use Integrations\Connectors\Sentry\Sentry;
+use Integrations\Connectors\Testlink\Testlink;
+use Integrations\Connectors\Zoho\Zoho;
 use Support\Components\Coders\Parser\ParseClass;
 use Support\Utils\Debugger\ErrorHelper;
 use Population\Models\Components\Integrations\Integration as IntegrationModel;

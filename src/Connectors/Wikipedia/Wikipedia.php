@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Wikipedia;
+namespace Integrations\Connectors\Wikipedia;
 
 use Log;
 use App\Models\User;
 
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Wikipedia extends Integration
 {

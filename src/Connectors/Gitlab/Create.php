@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Gitlab;
+namespace Integrations\Connectors\Gitlab;
 
 use Log;
 use App\Models\User;

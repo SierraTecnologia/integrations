@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Sentry;
+namespace Integrations\Connectors\Sentry;
 
 use Log;
 

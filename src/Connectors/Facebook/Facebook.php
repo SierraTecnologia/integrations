@@ -1,10 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Facebook;
+namespace Integrations\Connectors\Facebook;
 
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Facebook extends Integration
 {

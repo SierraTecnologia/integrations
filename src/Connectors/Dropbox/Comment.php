@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Dropbox;
+namespace Integrations\Connectors\Dropbox;
 
 use Log;
 use App\Models\User;

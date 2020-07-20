@@ -1,10 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Connector\Trello;
+namespace Integrations\Connectors\Trello;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class Trello extends Integration
 {

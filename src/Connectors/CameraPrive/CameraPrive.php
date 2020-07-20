@@ -1,10 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Connector\CameraPrive;
+namespace Integrations\Connectors\CameraPrive;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Connector;
 
 class CameraPrive extends Integration
 {
