@@ -124,18 +124,17 @@ class Connector
                         );
                     }
 
-                    if (is_file($realPath . $item) && $item!=='Integration.php') {
-                        Log::channel('sitec-finder')->warning(
+                    if (is_file($realPath . $item) && $item!=='Connector.php') {
+                        Log::channel('sitec-integrations')->warning(
                             ErrorHelper::tratarMensagem(
                                 'Não deveria ter arquivo nessa pasta: '.$realPath . $item
                             )
                         );
 
-                        //@todo Remover
                         try {
-                            throw new Exception;
+                            throw new Exception('Não deveria ter arquivo nessa pasta: '.$realPath . $item);
                         } catch(Exception $e) {
-                            dd($e->getTrace());
+                            dd($e->getTrace(), $e->getMessage(), 'Deu Ruim Integrations');
                         }
                     
                     }

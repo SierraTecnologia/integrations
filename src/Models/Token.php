@@ -6,7 +6,7 @@
 namespace Integrations\Models;
 
 use Support\Models\Base;
-use Population\Models\Identity\Digital\Account;
+use Telefonica\Models\Digital\Account;
 
 class Token extends Base
 {
