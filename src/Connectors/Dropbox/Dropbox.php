@@ -6,7 +6,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Dropbox extends Integration
+class Dropbox extends Connector
 {
 
     public static $ID = 2;

@@ -7,7 +7,7 @@ use App\Models\User;
 
 use Integrations\Connectors\Connector;
 
-class Tumblr extends Integration
+class Tumblr extends Connector
 {
 
     public static $ID = 20;

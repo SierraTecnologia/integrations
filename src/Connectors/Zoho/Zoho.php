@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Zoho extends Integration
+class Zoho extends Connector
 {
     public static $ID = 25;
     public static $URL = 'https://www.zoho.com/';

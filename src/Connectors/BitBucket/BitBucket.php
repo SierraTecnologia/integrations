@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Log;
 use Integrations\Connectors\Connector;
 
-class BitBucket extends Integration
+class BitBucket extends Connector
 {
     public static $ID = 29;
 

@@ -12,7 +12,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Testlink extends Integration
+class Testlink extends Connector
 {
     public static $ID = 19;
     protected function getConnection($token = false)

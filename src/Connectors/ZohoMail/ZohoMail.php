@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class ZohoMail extends Integration
+class ZohoMail extends Connector
 {
     /**
      * Proxima é 33, por causa do camera prive e amazon, BitBucket, GitHub, Trello

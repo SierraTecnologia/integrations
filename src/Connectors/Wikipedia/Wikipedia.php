@@ -7,7 +7,7 @@ use App\Models\User;
 
 use Integrations\Connectors\Connector;
 
-class Wikipedia extends Integration
+class Wikipedia extends Connector
 {
 
     public static $ID = 22;

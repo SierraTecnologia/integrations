@@ -8,7 +8,7 @@ use Cloudflare\API\Auth\APIKey;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Coursera extends Integration
+class Coursera extends Connector
 {
     public static $ID = 32;
 

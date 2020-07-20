@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Log;
 use Integrations\Connectors\Connector;
 
-class Trello extends Integration
+class Trello extends Connector
 {
     public static $ID = 31;
 

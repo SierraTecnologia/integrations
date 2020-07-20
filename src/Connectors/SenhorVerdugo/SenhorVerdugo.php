@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class SenhorVerdugo extends Integration
+class SenhorVerdugo extends Connector
 {
     public static $ID = 15;
     public function getConnection($organizer = false)

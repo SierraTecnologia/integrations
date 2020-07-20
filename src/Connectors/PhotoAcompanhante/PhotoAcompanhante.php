@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class PhotoAcompanhante extends Integration
+class PhotoAcompanhante extends Connector
 {
     public static $ID = 12;
     protected static $URL = 'https://www.photoacompanhantes.com/';

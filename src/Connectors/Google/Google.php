@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Google extends Integration
+class Google extends Connector
 {
     public static $ID = 6;
     public static $URL = 'https://www.google.com/';

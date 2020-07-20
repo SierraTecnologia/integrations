@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Slack extends Integration
+class Slack extends Connector
 {
     public static $ID = 17;
     public static $URL = 'https://www.slack.com/';

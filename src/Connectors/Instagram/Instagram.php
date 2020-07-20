@@ -7,7 +7,7 @@ use App\Models\User;
 
 use Integrations\Connectors\Connector;
 
-class Instagram extends Integration
+class Instagram extends Connector
 {
 
     public static $ID = 8;

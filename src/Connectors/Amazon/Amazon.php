@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Log;
 use Integrations\Connectors\Connector;
 
-class Amazon extends Integration
+class Amazon extends Connector
 {
     public static $ID = 28;
 

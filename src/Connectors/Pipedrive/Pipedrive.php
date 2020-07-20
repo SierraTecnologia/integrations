@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Pipedrive extends Integration
+class Pipedrive extends Connector
 {
     public static $ID = 14;
     protected function getConnection($token = false)

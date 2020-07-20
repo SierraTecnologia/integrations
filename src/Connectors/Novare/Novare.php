@@ -13,7 +13,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Novare extends Integration
+class Novare extends Connector
 {
     public static $ID = 11;
     protected function getConnection($token = false)

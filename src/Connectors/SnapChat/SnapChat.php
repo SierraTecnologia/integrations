@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class SnapChat extends Integration
+class SnapChat extends Connector
 {
     public static $ID = 18;
     public static $URL = 'https://www.snapchat.com/';

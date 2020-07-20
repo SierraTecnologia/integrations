@@ -11,7 +11,7 @@ use App\Models\User;
 use Integrations\Connectors\Connector;
 use JiraRestApi\Configuration\ArrayConfiguration;
 
-class Jira extends Integration
+class Jira extends Connector
 {
     public static $ID = 9;
 

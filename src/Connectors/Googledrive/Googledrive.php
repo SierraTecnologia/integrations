@@ -6,7 +6,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Googledrive extends Integration
+class Googledrive extends Connector
 {
 
     public static $ID = 7;

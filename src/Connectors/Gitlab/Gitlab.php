@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Gitlab extends Integration
+class Gitlab extends Connector
 {
     public static $ID = 4;
     protected function getConnection($token = false)

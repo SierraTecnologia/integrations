@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Log;
 use Integrations\Connectors\Connector;
 
-class CameraPrive extends Integration
+class CameraPrive extends Connector
 {
     public static $ID = 27;
 

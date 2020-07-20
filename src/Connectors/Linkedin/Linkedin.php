@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Linkedin extends Integration
+class Linkedin extends Connector
 {
     public static $ID = 10;
     public static $URL = 'https://www.linkedin.com/';

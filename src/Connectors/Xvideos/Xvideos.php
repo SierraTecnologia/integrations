@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Xvideos extends Integration
+class Xvideos extends Connector
 {
     public static $ID = 23;
     public static $URL = 'https://www.xvideos.com/';

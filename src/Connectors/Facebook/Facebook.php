@@ -6,7 +6,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Facebook extends Integration
+class Facebook extends Connector
 {
 
     public static $ID = 3;

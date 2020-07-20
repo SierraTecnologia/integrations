@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Log;
 use Integrations\Connectors\Connector;
 
-class GitHub extends Integration
+class GitHub extends Connector
 {
     public static $ID = 30;
 

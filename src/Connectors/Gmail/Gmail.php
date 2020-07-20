@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Gmail extends Integration
+class Gmail extends Connector
 {
     public static $ID = 5;
     public static $URL = 'https://www.gmail.com/';

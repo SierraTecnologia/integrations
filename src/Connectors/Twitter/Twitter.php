@@ -12,7 +12,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 use Integrations\Connectors\Connector;
 
-class Twitter extends Integration
+class Twitter extends Connector
 {
 
     public static $ID = 21;

@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Sentry extends Integration
+class Sentry extends Connector
 {
     public static $ID = 16;
     public $url = 'sentry.io';

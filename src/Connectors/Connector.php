@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Log;
 use App\Models\User;
 
-use Population\Models\Components\Integrations\Token;
+use Integrations\Models\Token;
 
 use Integrations\Connectors\Github\Github;
 use Integrations\Connectors\Amazon\Amazon;
@@ -19,7 +19,7 @@ use Integrations\Connectors\Testlink\Testlink;
 use Integrations\Connectors\Zoho\Zoho;
 use Support\Components\Coders\Parser\ParseClass;
 use Support\Utils\Debugger\ErrorHelper;
-use Population\Models\Components\Integrations\Integration as IntegrationModel;
+use Integrations\Models\Integration as IntegrationModel;
 use ReflectionGenerator;
 use Exception;
 use Support\Utils\Extratores\ClasserExtractor;

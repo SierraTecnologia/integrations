@@ -8,7 +8,7 @@ use Cloudflare\API\Auth\APIKey;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Cloudflare extends Integration
+class Cloudflare extends Connector
 {
     public static $ID = 1;
 

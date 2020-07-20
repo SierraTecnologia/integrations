@@ -7,7 +7,7 @@ use Log;
 use App\Models\User;
 use Integrations\Connectors\Connector;
 
-class Youtube extends Integration
+class Youtube extends Connector
 {
     public static $ID = 24;
     public static $URL = 'https://www.youtube.com/';
