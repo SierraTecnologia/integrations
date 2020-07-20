@@ -1,0 +1,68 @@
+{
+    "name": "sierratecnologia/integrations",
+    "description": "Integrations de Serviços",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ricardo Rebello Sierra",
+            "email": "contato@ricardosierra.com.br"
+        }
+    ],
+    "require": {
+        "php": "^7.3.0",
+        "league/flysystem-aws-s3-v3": "*",
+        "league/plates": "^3.1|^4.0",
+        "nicmart/string-template": "v0.1.0",
+        "php-http/guzzle6-adapter": "*",
+        "deployer/deployer": ">=6.4",
+        "devio/pipedrive": "*",
+        "fideloper/proxy": ">=4.0",
+        "maknz/slack": "*",
+        "lesstif/php-jira-rest-client": "*",
+        "m4tthumphrey/php-gitlab-api": "*",
+        "texthtml/docker-links": "*",
+        "laravel/envoy": "^1.0|^2.0",
+        "league/flysystem": "*",
+        "league/flysystem-cached-adapter": "*",
+        "league/flysystem-sftp": "*",
+        "league/flysystem-ziparchive": "*",
+        "srmklive/flysystem-dropbox-v2": "*",
+        "google/photos-library": ">=1.4",
+        "league/pipeline": "*",
+        "league/climate": ">=3.4",
+        "sierratecnologia/crypto": "dev-master",
+        "raiym/instagram-php-scraper": ">=0.9.10",
+        "pulkitjalan/google-apiclient": ">=4.0",
+        "cache/filesystem-adapter": ">=1.0",
+        "geerlingguy/ping": "*",
+        "aws/aws-sdk-php": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Integrations\\": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [],
+        "post-update-cmd": [],
+        "post-create-project-cmd": []
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../**",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Integrations\\IntegrationsProvider"
+            ]
+        }
+    }
+}
