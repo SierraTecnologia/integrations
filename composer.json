@@ -1,11 +1,24 @@
 {
     "name": "sierratecnologia/integrations",
     "description": "Integrations de Serviços",
+    "type": "library",
+    "keywords": [
+        "sierratecnologia",
+        "integrations"
+    ],
     "license": "MIT",
+    "homepage": "https://sierratecnologia.com/packages/integrations/",
+    "support": {
+        "email": "help@sierratecnologia.com",
+        "issues": "https://github.com/sierratecnologia/integrations/issues",
+        "source": "https://github.com/sierratecnologia/integrations",
+        "docs": "https://github.com/sierratecnologia/integrations/blob/master/README.md"
+    },
     "authors": [
         {
-            "name": "Ricardo Rebello Sierra",
-            "email": "contato@ricardosierra.com.br"
+            "name": "SierraTecnologia",
+            "homepage": "https://sierratecnologia.com.br",
+            "email": "help@sierratecnologia.com.br"
         }
     ],
     "require": {
