@@ -5,7 +5,7 @@ namespace Integrations\Connectors\PhotoAcompanhante;
 use Log;
 use App\Models\User;
 use QL\QueryList;
-use SiUtils\Tools\Proxy;
+use Fabrica\Tools\Proxy;
 
 class Import extends PhotoAcompanhante
 {

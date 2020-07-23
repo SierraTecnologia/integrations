@@ -18,11 +18,11 @@ use Integrations\Connectors\Sentry\Sentry;
 use Integrations\Connectors\Testlink\Testlink;
 use Integrations\Connectors\Zoho\Zoho;
 use Support\Components\Coders\Parser\ParseClass;
-use Support\Utils\Debugger\ErrorHelper;
+use Muleta\Utils\Debugger\ErrorHelper;
 use Integrations\Models\Integration as IntegrationModel;
 use ReflectionGenerator;
 use Exception;
-use Support\Utils\Extratores\ClasserExtractor;
+use Muleta\Utils\Extratores\ClasserExtractor;
 
 class Connector
 {

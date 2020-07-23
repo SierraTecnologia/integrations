@@ -5,7 +5,7 @@ namespace Integrations\Connectors\Instagram;
 use Log;
 use App\Models\User;
 use Exception;
-use Support\Utils\Debugger\ErrorHelper;
+use Muleta\Utils\Debugger\ErrorHelper;
 
 class Profile extends Instagram
 {
