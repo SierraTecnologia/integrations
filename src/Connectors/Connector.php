@@ -23,9 +23,11 @@ use Integrations\Models\Integration as IntegrationModel;
 use ReflectionGenerator;
 use Exception;
 use Muleta\Utils\Extratores\ClasserExtractor;
+use Support\Contracts\Output\OutputableTrait;
 
 class Connector
 {
+    use OutputableTrait;
 
     protected $_connection = null;
 

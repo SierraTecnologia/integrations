@@ -38,7 +38,7 @@ class Wikipedia extends Connector
         //   return $wikipedia;
     }
 
-    public function run()
+    public function handle()
     {
 
         /* ⣠⣾⣿⣿⣷⣄ Simple PHP Wiki Info Box ⣠⣾⣿⣿⣷⣄ */

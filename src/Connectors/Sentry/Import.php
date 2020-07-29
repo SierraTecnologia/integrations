@@ -7,7 +7,7 @@ use Log;
 
 class Import extends Sentry
 {
-    public function bundle()
+    public function handle()
     {
         var_dump($this->getProjects());
         return true;

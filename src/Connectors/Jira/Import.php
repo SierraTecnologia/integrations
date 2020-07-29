@@ -10,7 +10,7 @@ use Casa\Models\Registers\Spent;
 use Casa\Models\Calendar\Estimate;
 use Casa\Models\Calendar\Event;
 
-use Informate\Models\Comment;
+use Transmissor\Models\Comment;
 
 use Fabrica\Models\Code\Release;
 use Fabrica\Models\Code\Issue;
@@ -27,15 +27,15 @@ use JiraRestApi\Field\FieldService;
 
 class Import extends Jira
 {
-    public function bundle($output = false)
+    public function handle()
     {
-        Log::channel('sitec-finder')->info('Importando Jira...');
-        $this->getFields($output);
-        $this->getProjects($output);
-        $this->getInfoFromIssues($output);
+        $this->info('Importando Jira...');
+        $this->getFields();
+        $this->getProjects();
+        $this->getInfoFromIssues();
     }
 
-    public function getFields($output = false)
+    public function getFields()
     {
         try {
             $fieldService = new FieldService($this->getConfig($this->_token));
@@ -43,6 +43,7 @@ class Import extends Jira
             // $fieldService->getAllFields(Field::CUSTOM),
             $fields = $fieldService->getAllFields(); 
             foreach($fields as $field) {
+                $this->info('Registrando FieldModel ...');   
                 FieldModel::registerFieldForProject($field, $this->_token->account->customize_url);
             }
             
@@ -51,20 +52,21 @@ class Import extends Jira
         }
     }
 
-    public function getProjects($output = false)
+    public function getProjects()
     {
-        Log::channel('sitec-finder')->info('Importando Projetos do Jira...');
+        $this->info('Importando Projetos do Jira...');
         try {
             $proj = new ProjectService($this->getConfig($this->_token));
         
             $prjs = $proj->getAllProjects();
-            // Log::channel('sitec-finder')->info(print_r($prjs, true));
+            // $this->info(print_r($prjs, true));
         
             foreach ($prjs as $p) {
-                // Log::channel('sitec-finder')->info(print_r($p, true));
+                // $this->info(print_r($p, true));
                 // Project Key:USS, Id:10021, Name:User Shipping Service, projectCategory: Desenvolvimento
                 if (!$projModel = ProjectModel::where('projectPathKey', $p->key)->first()) {
                     if (!$projModel && !$projModel = ProjectModel::where('projectPath', $p->name)->first()) {
+                        $this->info('Registrando Projeto: '.$p->key);   
                         $projModel = ProjectModel::create(
                             [
                             'name' => $p->name,
@@ -90,16 +92,16 @@ class Import extends Jira
         }
     }
 
-    public function getInfoFromIssues($output = false)
+    public function getInfoFromIssues()
     {
         $chunkNumber = 10;
         $object = $this;
         // Trata os Outros Dados dos Usuários                                                                                                                                                    
         Issue::chunk(
-            $chunkNumber, function ($issues) use ($output, $object, $chunkNumber) {                                                                                                                               
+            $chunkNumber, function ($issues) use ($object, $chunkNumber) {                                                                                                                               
                 foreach ($issues as $issue) {                                                                                                                                                          
-                    if ($output) {                                                                                                                                                                  
-                        $output->returnOutput()->progressAdvance($chunkNumber);                                                                                                                                 
+                    if ($this->output) {                                                                                                                                                                  
+                        $this->output->returnOutput()->progressAdvance($chunkNumber);                                                                                                                                 
                     }
                     // $object->issueTimeTracking($issue->key_name); // @todo Retirar Depois
                     // $object->issueWorklog($issue->key_name);
@@ -119,7 +121,8 @@ class Import extends Jira
         $result = $this->searchIssue($jql, $paginate);
         if (!empty($result->issues)) {
             foreach ($result->issues as $issue) {
-                if (!$issueInstance = Issue::where(['key_name' => $issue->key])->first()) {       
+                if (!$issueInstance = Issue::where(['key_name' => $issue->key])->first()) {
+                    $this->info('Registrando Issue: '.$issue->key);   
                     $issueInstance = Issue::create(
                         [
                         'key_name' => $issue->key,
@@ -155,9 +158,15 @@ class Import extends Jira
         }
     }
 
+    /**
+     * @todo
+     *
+     * @param [type] $project
+     * @return void
+     */
     public function project($project)
     {
-        Log::channel('sitec-finder')->info('Importando Projeto do Jira...');
+        $this->info('Importando Projeto do Jira...');
         try {
             $proj = new ProjectService($this->getConfig($this->_token));
         
@@ -177,6 +186,7 @@ class Import extends Jira
             
             // get issue's time tracking info
             $rets = $issueService->getTimeTracking($issueKey);
+            $this->info('Registrando timetracking');
             Spent::registerSpentForIssue($rets, $this->_token->account->customize_url);
 
             
@@ -201,6 +211,7 @@ class Import extends Jira
             
             // get issue's all worklog
             $worklogs = $issueService->getWorklog($issueKey)->getWorklogs();
+            $this->info('Registrando worklogs');
             Spent::registerSpentForIssue($worklogs, $this->_token->account->customize_url);
             
             // // get worklog by id
@@ -220,6 +231,7 @@ class Import extends Jira
         
             $rets = $ils->getIssueLinkTypes();
             foreach($rets as $ret) {
+                $this->info('Criando CodeIssueLinkType: '.$ret->name); // @todo
                 var_dump($ret);
                 CodeIssueLink::firstOrCreate(
                     [
@@ -240,6 +252,7 @@ class Import extends Jira
 
             $rils = $issueService->getRemoteIssueLink($issueKey);
             foreach($rils as $ril) {
+                $this->info('Criando CodeIssueLink: '.$ril->name); // @todo
                 var_dump($ril);
                 CodeIssueLink::firstOrCreate(
                     [
@@ -259,6 +272,7 @@ class Import extends Jira
             $issueService = new IssueService($this->getConfig($this->_token));
         
             $comments = $issueService->getComments($issueKey);
+            $this->info('Criando comentários p/ Issue: '.$issueKey);
             Comment::registerComents(
                 $comments,
                 $issueKey,
@@ -309,6 +323,20 @@ class Import extends Jira
             $vers = $proj->getVersions($projInstance->getSlug());
         
             foreach ($vers as $v) {
+                /** @todo Usar id e url
+                 * JiraRestApi\Issue\Version^ {#5807
+                 * +self: "https://sitec.atlassian.net/rest/api/2/version/10207"
+                 * +id: "10207"
+                 * +name: "v0.1.0"
+                 * +description: null
+                 * +archived: false
+                 * +released: false
+                 * +releaseDate: null
+                 * +overdue: null
+                 * +userReleaseDate: null
+                 * +projectId: 10215
+                 * }
+                  */
                 // $v is  JiraRestApi\Issue\Version
                 if (!Release::where(
                     [
@@ -317,14 +345,15 @@ class Import extends Jira
                     ]
                 )->first()
                 ) {
+                    $this->info('Criando Versão (Proj '.$projInstance->id.'): '.$v->name);
                     Release::create(
                         [
                         'name' => $v->name,
                         // 'start' => $v->startDate,
                         'release' => $v->releaseDate,
                         'code_project_id' => $projInstance->id,
-                        'created_at' => $v->created,
-                        'updated_at' => $v->updated
+                        // 'created_at' => $v->created,
+                        // 'updated_at' => $v->updated
                         ]
                     );
                 }
