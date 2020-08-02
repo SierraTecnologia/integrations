@@ -14,24 +14,24 @@ Route::group(
                         // Route::get('home', 'HomeController@index')->name('home');
                         // Route::get('persons', 'HomeController@persons')->name('persons');
 
-                        // /**
-                        //  * Track
-                        //  */
-                        // Route::prefix('track')->group(
-                        //     function () {
-                        //         Route::namespace('Track')->group(
-                        //             function () {
-                        //                 Route::group(
-                        //                     ['as' => 'track.'], function () {
+                        /**
+                         * WebServices
+                         */
+                        Route::prefix('webservices')->group(
+                            function () {
+                                Route::namespace('WebServices')->group(
+                                    function () {
+                                        Route::group(
+                                            ['as' => 'webservices.'], function () {
 
-                        //                         Route::get('person', 'PersonController@index')->name('person');
+                                                Route::get('tokens', 'TokenController@index')->name('tokens.index');
 
-                        //                     }
-                        //                 );
-                        //             }
-                        //         );
-                        //     }
-                        // );
+                                            }
+                                        );
+                                    }
+                                );
+                            }
+                        );
 
                     }
                 );

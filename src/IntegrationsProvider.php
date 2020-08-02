@@ -41,7 +41,26 @@ class IntegrationsProvider extends ServiceProvider
      * Rotas do Menu
      */
     public static $menuItens = [
-
+        'Config|425' => [
+            [
+                'text' => 'Integrações',
+                'icon' => 'fas fa-fw fa-search',
+                'icon_color' => "blue",
+                'label_color' => "success",
+                'level'       => 3, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+            ],
+            'Integrações' => [
+                [
+                    'text'        => 'Tokens',
+                    'route'       => 'rica.integrations.webservices.tokens.index',
+                    'icon'        => 'fas fa-fw fa-search',
+                    'icon_color'  => 'blue',
+                    'label_color' => 'success',
+                    'level'       => 3, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+                    // 'access' => \App\Models\Role::$ADMIN
+                ],
+            ],
+        ],
     ];
 
     /**
