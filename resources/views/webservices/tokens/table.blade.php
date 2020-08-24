@@ -44,7 +44,7 @@
                 <?php
                 $user = \Auth::user();
                 if($user && $user->isRoot() && is_object($order->user)) {
-                    echo '<td><a href="'.route('root.users.show', $order->user->id).'">'.$order->user->name.'</td>';
+                    echo '<td><a href="'.route('admin.users.show', $order->user->id).'">'.$order->user->name.'</td>';
                 }
                 ?>
                 <td>
