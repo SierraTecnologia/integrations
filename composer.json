@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "php": "^7.3.0",
+        "php": "^7.4",
         "sierratecnologia/muleta": "dev-master",
         "sierratecnologia/crypto": "dev-master",
         "ricardosierra/changelog": "~1.4",

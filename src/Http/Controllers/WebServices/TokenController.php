@@ -3,10 +3,11 @@
 namespace Integrations\Http\Controllers\WebServices;
 
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
-use Facilitador\Exceptions\Exception;
-use Facilitador\Http\Controllers\Admin\Base;
+use Integrations\Exceptions\Exception;
+use Integrations\Http\Controllers\Controller as Base;
 use Integrations\Models\Token;
+// use Facilitador\Http\Controllers\Admin\Base;
+use Yajra\Datatables\Datatables;
 
 class TokenController extends Base
 {
@@ -81,7 +82,7 @@ class TokenController extends Base
             ],
         ];
 
-        parent::__construct();
+        // parent::__construct();
     }
 
     // /**
