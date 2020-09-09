@@ -2,28 +2,27 @@
 
 namespace Integrations\Connectors\Jira;
 
-use Log;
 use App\Models\User;
-
-use Fabrica\Models\Code\CodeIssueLink;
-use Casa\Models\Registers\Spent;
 use Casa\Models\Calendar\Estimate;
+
 use Casa\Models\Calendar\Event;
-
-use Transmissor\Models\Comment;
-
-use Fabrica\Models\Code\Release;
-use Fabrica\Models\Code\Issue;
+use Casa\Models\Registers\Spent;
+use Fabrica\Models\Code\CodeIssueLink;
 use Fabrica\Models\Code\Field as FieldModel;
-use Fabrica\Models\Code\Project as ProjectModel;
 
-use JiraRestApi\Project\ProjectService;
-use JiraRestApi\JiraException;
+use Fabrica\Models\Code\Issue;
+
+use Fabrica\Models\Code\Project as ProjectModel;
+use Fabrica\Models\Code\Release;
 use JiraRestApi\Field\Field;
-use JiraRestApi\Issue\IssueService;
-use JiraRestApi\Issue\Version;
 use JiraRestApi\Field\FieldService;
 
+use JiraRestApi\Issue\IssueService;
+use JiraRestApi\Issue\Version;
+use JiraRestApi\JiraException;
+use JiraRestApi\Project\ProjectService;
+use Log;
+use Transmissor\Models\Comment;
 
 class Import extends Jira
 {
@@ -41,12 +40,11 @@ class Import extends Jira
             $fieldService = new FieldService($this->getConfig($this->_token));
         
             // $fieldService->getAllFields(Field::CUSTOM),
-            $fields = $fieldService->getAllFields(); 
-            foreach($fields as $field) {
-                $this->info('Registrando FieldModel ...');   
+            $fields = $fieldService->getAllFields();
+            foreach ($fields as $field) {
+                $this->info('Registrando FieldModel ...');
                 FieldModel::registerFieldForProject($field, $this->_token->account->customize_url);
             }
-            
         } catch (JiraException $e) {
             $this->setError('testSearch Failed : '.$e->getMessage());
         }
@@ -66,7 +64,7 @@ class Import extends Jira
                 // Project Key:USS, Id:10021, Name:User Shipping Service, projectCategory: Desenvolvimento
                 if (!$projModel = ProjectModel::where('projectPathKey', $p->key)->first()) {
                     if (!$projModel && !$projModel = ProjectModel::where('projectPath', $p->name)->first()) {
-                        $this->info('Registrando Projeto: '.$p->key);   
+                        $this->info('Registrando Projeto: '.$p->key);
                         $projModel = ProjectModel::create(
                             [
                             'name' => $p->name,
@@ -85,8 +83,8 @@ class Import extends Jira
                 $this->getIssuesFromProject($projModel);
                 // echo sprintf("Project Key:%s, Id:%s, Name:%s, projectCategory: %s\n",
                 //     $p->key, $p->id, $p->name, $p->projectCategory['name']
-                // );            
-            }            
+                // );
+            }
         } catch (JiraException $e) {
             $this->setError("Error Occured! " . $e->getMessage());
         }
@@ -96,13 +94,14 @@ class Import extends Jira
     {
         $chunkNumber = 10;
         $object = $this;
-        // Trata os Outros Dados dos Usuários                                                                                                                                                    
+        // Trata os Outros Dados dos Usuários
         Issue::chunk(
-            $chunkNumber, function ($issues) use ($object, $chunkNumber) {                                                                                                                               
-                foreach ($issues as $issue) {                                                                                                                                                          
-                    if ($this->output) {                                                                                                                                                                  
-                        $this->output->returnOutput()->progressAdvance($chunkNumber);                                                                                                                                 
-                    }
+            $chunkNumber, function ($issues) use ($object, $chunkNumber) {
+                foreach ($issues as $issue) {
+                    // @todo
+                    // if ($this->output && isset($this->output->returnOutput())) {
+                    //     $this->output->returnOutput()->progressAdvance($chunkNumber);
+                    // }
                     // $object->issueTimeTracking($issue->key_name); // @todo Retirar Depois
                     // $object->issueWorklog($issue->key_name);
                     $object->comment($issue->key_name);
@@ -122,14 +121,14 @@ class Import extends Jira
         if (!empty($result->issues)) {
             foreach ($result->issues as $issue) {
                 if (!$issueInstance = Issue::where(['key_name' => $issue->key])->first()) {
-                    $this->info('Registrando Issue: '.$issue->key);   
+                    $this->info('Registrando Issue: '.$issue->key);
                     $issueInstance = Issue::create(
                         [
                         'key_name' => $issue->key,
                         'url' => $issue->self,
                         // 'created_at' => $issue->created,
                         // 'updated_at' => $issue->updated
-                        // 'sumary' => '', @todo fazer aqui 
+                        // 'sumary' => '', @todo fazer aqui
                         ]
                     );
                     if (!empty($issue->fields)) {
@@ -172,7 +171,7 @@ class Import extends Jira
         
             $p = $proj->get($project->getSlug());
             
-            var_dump($p);            
+            var_dump($p);
         } catch (JiraException $e) {
             $this->setError("Error Occured! " . $e->getMessage());
         }
@@ -180,7 +179,6 @@ class Import extends Jira
 
     public function issueTimeTracking($issueKey = 'TEST-961')
     {
-
         try {
             $issueService = new IssueService($this->getConfig($this->_token));
             
@@ -205,7 +203,6 @@ class Import extends Jira
 
     public function issueWorklog($issueKey = 'TEST-961')
     {
-
         try {
             $issueService = new IssueService($this->getConfig($this->_token));
             
@@ -218,7 +215,6 @@ class Import extends Jira
             // $wlId = 12345;
             // $wl = $issueService->getWorklogById($issueKey, $wlId);
             // var_dump($wl);
-            
         } catch (JiraException $e) {
             $this->setError('testSearch Failed : '.$e->getMessage());
         }
@@ -230,7 +226,7 @@ class Import extends Jira
             $ils = new IssueLinkService($this->getConfig($this->_token));
         
             $rets = $ils->getIssueLinkTypes();
-            foreach($rets as $ret) {
+            foreach ($rets as $ret) {
                 $this->info('Criando CodeIssueLinkType: '.$ret->name); // @todo
                 var_dump($ret);
                 CodeIssueLink::firstOrCreate(
@@ -239,7 +235,6 @@ class Import extends Jira
                     ]
                 );
             }
-            
         } catch (JiraException $e) {
             $this->setError("Error Occured! " . $e->getMessage());
         }
@@ -251,7 +246,7 @@ class Import extends Jira
             $issueService = new IssueService($this->getConfig($this->_token));
 
             $rils = $issueService->getRemoteIssueLink($issueKey);
-            foreach($rils as $ril) {
+            foreach ($rils as $ril) {
                 $this->info('Criando CodeIssueLink: '.$ril->name); // @todo
                 var_dump($ril);
                 CodeIssueLink::firstOrCreate(
@@ -267,7 +262,6 @@ class Import extends Jira
 
     public function comment($issueKey = "TEST-879")
     {
-
         try {
             $issueService = new IssueService($this->getConfig($this->_token));
         
@@ -279,8 +273,6 @@ class Import extends Jira
                 Issue::class,
                 $this->_token->account->customize_url
             );
-        
-        
         } catch (JiraException $e) {
             $this->setError('get Comment Failed : '.$e->getMessage());
         }
@@ -309,7 +301,7 @@ class Import extends Jira
                     
             $issue = $issueService->get($issueKey, $queryParam);
             
-            var_dump($issue->fields);    
+            var_dump($issue->fields);
         } catch (JiraException $e) {
             $this->setError("Error Occured! " . $e->getMessage());
         }
@@ -378,7 +370,6 @@ class Import extends Jira
             // get specific project type.
             $pt = $proj->getProjectType('software');
             var_dump($pt);
-        
         } catch (JiraException $e) {
             $this->setError("Error Occured! " . $e->getMessage());
         }

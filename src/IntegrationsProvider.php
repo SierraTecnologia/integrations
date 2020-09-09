@@ -2,28 +2,28 @@
 
 namespace Integrations;
 
-use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
-use Integrations\Services\IntegrationsService;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\View;
-
-use Log;
 use App;
 use Config;
-use Route;
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Routing\Router;
 
-use Muleta\Traits\Providers\ConsoleTools;
-
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 use Integrations\Facades\Integrations as IntegrationsFacade;
-use Illuminate\Contracts\Events\Dispatcher;
+use Integrations\Services\IntegrationsService;
 
+use Log;
+
+use Muleta\Traits\Providers\ConsoleTools;
+use Route;
 
 class IntegrationsProvider extends ServiceProvider
 {
     use ConsoleTools;
 
+    public $packageName = 'integrations';
     const pathVendor = 'sierratecnologia/integrations';
 
     public static $aliasProviders = [
@@ -47,6 +47,7 @@ class IntegrationsProvider extends ServiceProvider
                 'icon' => 'fas fa-fw fa-search',
                 'icon_color' => "blue",
                 'label_color' => "success",
+                'section'     => 'admin',
                 'level'       => 3, // 0 (Public), 1, 2 (Admin) , 3 (Root)
             ],
             'Integrações' => [
@@ -56,6 +57,7 @@ class IntegrationsProvider extends ServiceProvider
                     'icon'        => 'fas fa-fw fa-search',
                     'icon_color'  => 'blue',
                     'label_color' => 'success',
+                    'section'     => 'admin',
                     'level'       => 3, // 0 (Public), 1, 2 (Admin) , 3 (Root)
                     // 'access' => \App\Models\Role::$ADMIN
                 ],
@@ -92,19 +94,21 @@ class IntegrationsProvider extends ServiceProvider
         }
 
         /**
-         * Integrations; Routes
+         * Transmissor; Routes
          */
-        Route::group(
-            [
-                'namespace' => '\Integrations\Http\Controllers',
-                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.main', ''),
-                'as' => 'rica.',
-                // 'middleware' => 'rica',
-            ], function ($router) {
-                include __DIR__.'/../routes/web.php';
-            }
-        );
+        $this->loadRoutesForRiCa(__DIR__.'/../routes');
+        // Route::group(
+        //     [
+        //         'namespace' => '\Integrations\Http\Controllers',
+        //         'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.main', ''),
+        //         'as' => 'rica.',
+        //         // 'middleware' => 'rica',
+        //     ], function ($router) {
+        //         include __DIR__.'/../routes/web.php';
+        //     }
+        // );
     }
+
 
     /**
      * Register the services.
@@ -196,7 +200,6 @@ class IntegrationsProvider extends ServiceProvider
 
         $this->loadViews();
         $this->loadTranslations();
-
     }
 
     private function loadViews()
@@ -209,7 +212,6 @@ class IntegrationsProvider extends ServiceProvider
             $viewsPath => base_path('resources/views/vendor/integrations'),
             ], ['views',  'sitec', 'sitec-views']
         );
-
     }
     
     private function loadTranslations()
@@ -227,7 +229,7 @@ class IntegrationsProvider extends ServiceProvider
 
 
     /**
-     * 
+     *
      */
     private function loadLogger()
     {
@@ -239,5 +241,4 @@ class IntegrationsProvider extends ServiceProvider
             ]
         );
     }
-
 }
