@@ -5395,7 +5395,7 @@
                 "reference": "52606956722f6ac59acbd392fc926adbc85a1d69"
             },
             "require": {
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/support": "^7.0|^8.0",
                 "php": ">=5.6.4",
                 "ramsey/uuid": ">=3.8"
             },
