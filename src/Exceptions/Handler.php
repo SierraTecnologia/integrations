@@ -2,7 +2,7 @@
 
 namespace Integrations\Exceptions;
 
-use Support\Exceptions\Handler as BaseHandler;
+use Pedreiro\Exceptions\Handler as BaseHandler;
 
 class Handler extends BaseHandler
 {
