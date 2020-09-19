@@ -1,8 +1,8 @@
 <?php
 
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateIntegrationsTables extends Migration
 {
@@ -14,7 +14,8 @@ class CreateIntegrationsTables extends Migration
     public function up()
     {
         Schema::create(
-            'integrations', function (Blueprint $table) {
+            'integrations',
+            function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id')->unsigned();
                 $table->string('name', 255)->nullable();
@@ -26,7 +27,8 @@ class CreateIntegrationsTables extends Migration
             }
         );
         Schema::create(
-            'services', function (Blueprint $table) {
+            'services',
+            function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id')->unsigned();
                 $table->string('name', 255)->nullable();
@@ -41,7 +43,8 @@ class CreateIntegrationsTables extends Migration
          * Account
          */
         Schema::create(
-            'accounts', function (Blueprint $table) {
+            'accounts',
+            function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id')->unsigned();
                 $table->string('username', 255);
@@ -56,7 +59,8 @@ class CreateIntegrationsTables extends Migration
             }
         );
         Schema::table(
-            'accounts', function (Blueprint $table) {
+            'accounts',
+            function (Blueprint $table) {
                 $table->foreign('integration_id')->references('id')->on('integrations');
             }
         );
@@ -65,7 +69,8 @@ class CreateIntegrationsTables extends Migration
          * Accountables
          */
         Schema::create(
-            'accountables', function (Blueprint $table) {
+            'accountables',
+            function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id')->unsigned();
                 $table->bigInteger('account_id')->unsigned(); //->nullable();
@@ -77,7 +82,8 @@ class CreateIntegrationsTables extends Migration
             }
         );
         Schema::table(
-            'accountables', function (Blueprint $table) {
+            'accountables',
+            function (Blueprint $table) {
                 $table->foreign('account_id')->references('id')->on('accounts');
             }
         );
@@ -86,7 +92,8 @@ class CreateIntegrationsTables extends Migration
          * Tokens
          */
         Schema::create(
-            'tokens', function (Blueprint $table) {
+            'tokens',
+            function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->string('token');
                 $table->integer('status')->default(1);
@@ -98,7 +105,8 @@ class CreateIntegrationsTables extends Migration
             }
         );
         Schema::table(
-            'tokens', function (Blueprint $table) {
+            'tokens',
+            function (Blueprint $table) {
                 $table->foreign('account_id')->references('id')->on('accounts');
             }
         );
