@@ -22,6 +22,6 @@ class Gitlab extends Connector
 
         // or for OAuth2 (see https://github.com/m4tthumphrey/php-gitlab-api/blob/master/lib/Gitlab/HttpClient/Plugin/Authentication.php#L47)
         return \Gitlab\Client::create($url)
-        ->authenticate($token->token, \Gitlab\Client::AUTH_OAUTH_TOKEN);
+            ->authenticate($token->token, \Gitlab\Client::AUTH_OAUTH_TOKEN);
     }
 }

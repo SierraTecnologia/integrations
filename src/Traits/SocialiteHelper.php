@@ -47,8 +47,7 @@ trait SocialiteHelper
     {
         $driver = $request->input('driver');
 
-        if (
-            !isset($this->oauthDrivers[$driver])
+        if (!isset($this->oauthDrivers[$driver])
             || (Auth::check() && Auth::user()->register_source == $driver)
         ) {
             return redirect()->intended('/');

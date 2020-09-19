@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Builder;
 /**
  * Class LdapService
  * Handles any app-specific LDAP tasks.
+ *
  * @package Integrations\Services
  */
 class LdapService
@@ -26,7 +27,8 @@ class LdapService
 
     /**
      * LdapService constructor.
-     * @param Ldap $ldap
+     *
+     * @param Ldap                          $ldap
      * @param \Integrations\Models\UserRepo $userRepo
      */
     public function __construct(Access\Ldap $ldap, UserRepo $userRepo)
@@ -39,6 +41,7 @@ class LdapService
 
     /**
      * Check if groups should be synced.
+     *
      * @return bool
      */
     public function shouldSyncGroups()
@@ -48,8 +51,9 @@ class LdapService
 
     /**
      * Search for attributes for a specific user on the ldap
-     * @param string $userName
-     * @param array $attributes
+     *
+     * @param  string $userName
+     * @param  array  $attributes
      * @return null|array
      * @throws LdapException
      */
@@ -75,7 +79,8 @@ class LdapService
     /**
      * Get the details of a user from LDAP using the given username.
      * User found via configurable user filter.
-     * @param $userName
+     *
+     * @param  $userName
      * @return array|null
      * @throws LdapException
      */
@@ -102,9 +107,10 @@ class LdapService
     /**
      * Get a property from an LDAP user response fetch.
      * Handles properties potentially being part of an array.
-     * @param array $userDetails
-     * @param string $propertyKey
-     * @param $defaultValue
+     *
+     * @param  array  $userDetails
+     * @param  string $propertyKey
+     * @param  $defaultValue
      * @return mixed
      */
     protected function getUserResponseProperty(array $userDetails, string $propertyKey, $defaultValue)
@@ -117,9 +123,9 @@ class LdapService
     }
 
     /**
-     * @param Authenticatable $user
-     * @param string          $username
-     * @param string          $password
+     * @param  Authenticatable $user
+     * @param  string          $username
+     * @param  string          $password
      * @return bool
      * @throws LdapException
      */
@@ -147,7 +153,8 @@ class LdapService
     /**
      * Bind the system user to the LDAP connection using the given credentials
      * otherwise anonymous access is attempted.
-     * @param $connection
+     *
+     * @param  $connection
      * @throws LdapException
      */
     protected function bindSystemUser($connection)
@@ -170,6 +177,7 @@ class LdapService
     /**
      * Get the connection to the LDAP server.
      * Creates a new connection if one does not exist.
+     *
      * @return resource
      * @throws LdapException
      */
@@ -219,8 +227,9 @@ class LdapService
 
     /**
      * Build a filter string by injecting common variables.
-     * @param string $filterString
-     * @param array $attrs
+     *
+     * @param  string $filterString
+     * @param  array  $attrs
      * @return string
      */
     protected function buildFilter($filterString, array $attrs)
@@ -235,7 +244,8 @@ class LdapService
 
     /**
      * Get the groups a user is a part of on ldap
-     * @param string $userName
+     *
+     * @param  string $userName
      * @return array
      * @throws LdapException
      */
@@ -255,8 +265,9 @@ class LdapService
 
     /**
      * Get the parent groups of an array of groups
-     * @param array $groupsArray
-     * @param array $checked
+     *
+     * @param  array $groupsArray
+     * @param  array $checked
      * @return array
      * @throws LdapException
      */
@@ -283,7 +294,8 @@ class LdapService
 
     /**
      * Get the parent groups of a single group
-     * @param string $groupName
+     *
+     * @param  string $groupName
      * @return array
      * @throws LdapException
      */
@@ -311,7 +323,8 @@ class LdapService
     /**
      * Filter out LDAP CN and DN language in a ldap search return
      * Gets the base CN (common name) of the string
-     * @param array $userGroupSearchResponse
+     *
+     * @param  array $userGroupSearchResponse
      * @return array
      */
     protected function groupFilter(array $userGroupSearchResponse)
@@ -336,8 +349,9 @@ class LdapService
 
     /**
      * Sync the LDAP groups to the user roles for the current user
-     * @param \App\Models\User $user
-     * @param string $username
+     *
+     * @param  \App\Models\User $user
+     * @param  string           $username
      * @throws LdapException
      */
     public function syncGroups(User $user, string $username)
@@ -359,7 +373,8 @@ class LdapService
     /**
      * Match an array of group names from LDAP to App system roles.
      * Formats LDAP group names to be lower-case and hyphenated.
-     * @param array $groupNames
+     *
+     * @param  array $groupNames
      * @return \Illuminate\Support\Collection
      */
     protected function matchLdapGroupsToSystemsRoles(array $groupNames)
@@ -368,16 +383,20 @@ class LdapService
             $groupNames[$i] = str_replace(' ', '-', trim(strtolower($groupName)));
         }
 
-        $roles = Role::query()->where(function (Builder $query) use ($groupNames) {
-            $query->whereIn('name', $groupNames);
-            foreach ($groupNames as $groupName) {
-                $query->orWhere('external_auth_id', 'LIKE', '%' . $groupName . '%');
+        $roles = Role::query()->where(
+            function (Builder $query) use ($groupNames) {
+                $query->whereIn('name', $groupNames);
+                foreach ($groupNames as $groupName) {
+                    $query->orWhere('external_auth_id', 'LIKE', '%' . $groupName . '%');
+                }
             }
-        })->get();
+        )->get();
 
-        $matchedRoles = $roles->filter(function (Role $role) use ($groupNames) {
-            return $this->roleMatchesGroupNames($role, $groupNames);
-        });
+        $matchedRoles = $roles->filter(
+            function (Role $role) use ($groupNames) {
+                return $this->roleMatchesGroupNames($role, $groupNames);
+            }
+        );
 
         return $matchedRoles->pluck('id');
     }
@@ -385,8 +404,9 @@ class LdapService
     /**
      * Check a role against an array of group names to see if it matches.
      * Checked against role 'external_auth_id' if set otherwise the name of the role.
-     * @param \App\Models\Role $role
-     * @param array $groupNames
+     *
+     * @param  \App\Models\Role $role
+     * @param  array            $groupNames
      * @return bool
      */
     protected function roleMatchesGroupNames(Role $role, array $groupNames)

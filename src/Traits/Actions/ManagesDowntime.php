@@ -7,9 +7,9 @@ use Integrations\Resources\Downtime;
 trait ManagesDowntime
 {
     /**
-     * @param int $siteId
-     * @param string $startedAt  Must be in format Ymdhis
-     * @param string $endedAt  Must be in format Ymdhis
+     * @param int    $siteId
+     * @param string $startedAt Must be in format Ymdhis
+     * @param string $endedAt   Must be in format Ymdhis
      *
      * @return array
      */

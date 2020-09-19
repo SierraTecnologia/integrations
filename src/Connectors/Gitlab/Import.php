@@ -20,9 +20,11 @@ class Import extends Gitlab
     
     public function projects($output)
     {
-        $projects = $this->_connection->api('projects')->all([
+        $projects = $this->_connection->api('projects')->all(
+            [
             'owned' => true
-        ]);
+            ]
+        );
 
         foreach ($projects as $project) {
             try {

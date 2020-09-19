@@ -41,24 +41,26 @@ class IntegrationFactory
             ->where('to_id', $this->receiver->id)
             ->where('group_id', $this->group->id)
             ->get()
-            ->each(function (Debt $debt) {
+            ->each(
+                function (Debt $debt) {
 
-                $debtAmount = $debt->amount;
+                    $debtAmount = $debt->amount;
 
-                if ($this->amount < $debtAmount) {
-                    $debt->amount -= $this->amount;
-                    $debt->save();
+                    if ($this->amount < $debtAmount) {
+                        $debt->amount -= $this->amount;
+                        $debt->save();
 
-                } else {
-                    $debt->delete();
+                    } else {
+                        $debt->delete();
+                    }
+
+                    $this->amount -= $debtAmount;
+
+                    if ($this->amount <= 0) {
+                        return false;
+                    }
                 }
-
-                $this->amount -= $debtAmount;
-
-                if ($this->amount <= 0) {
-                    return false;
-                }
-            });
+            );
 
         if ($this->amount <= 0) {
             return;
