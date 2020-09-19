@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Http\Controllers\WebServices;
+namespace Integrations\Http\Controllers\WebServicos;
 
 use Illuminate\Http\Request;
 use Integrations\Exceptions\Exception;
