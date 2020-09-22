@@ -1,14 +1,14 @@
-<?php 
+<?php
 
-namespace Integrations\Models\Access;
+namespace Integrations\Services;
 
-use Integrations\Models\Access;
 use App\Models\Role;
 use App\Models\User;
-use Integrations\Models\UserRepo;
-use Integrations\Exceptions\LdapException;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
+use Integrations\Exceptions\LdapException;
+use Integrations\Models\Access;
+use Integrations\Models\UserRepo;
 
 /**
  * Class LdapService
@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Builder;
  */
 class LdapService
 {
-
     protected $ldap;
     protected $ldapConnection;
     protected $config;
