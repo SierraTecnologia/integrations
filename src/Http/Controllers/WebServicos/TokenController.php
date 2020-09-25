@@ -14,18 +14,18 @@ class TokenController extends Base
     /**
      * @var string
      */
-    protected $title = 'Tokens';
-    protected $model = Token::class;
+    public $title = 'Tokens';
+    public $model = Token::class;
 
     /**
      * @var string
      */
-    protected $description = 'Listagem de Tokens.';
+    public $description = 'Listagem de Tokens.';
 
     /**
      * @var array
      */
-    protected $columns = [
+    public $columns = [
         'Rule' => 'getAdminTitleAttribute',
     ];
 
