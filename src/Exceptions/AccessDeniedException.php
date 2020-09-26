@@ -9,7 +9,7 @@ class AccessDeniedException extends Exception
     /**
      * Render the exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request
+     * @param \Illuminate\Http\Request
      *
      * @return \Illuminate\Http\Response
      */
