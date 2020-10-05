@@ -52,15 +52,7 @@
         "post-update-cmd": [],
         "post-create-project-cmd": []
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../**",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
+    "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",
