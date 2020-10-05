@@ -24,7 +24,7 @@
     "require": {
         "php": "^7.4",
         "ricasolucoes/atlassian": "dev-master",
-        "sierratecnologia/muleta": "dev-master",
+        "sierratecnologia/muleta": "^0.4.0",
         "league/flysystem-aws-s3-v3": "*",
         "league/plates": "^3.1|^4.0",
         "fideloper/proxy": ">=4.0",
@@ -52,7 +52,6 @@
         "post-update-cmd": [],
         "post-create-project-cmd": []
     },
-    "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",
