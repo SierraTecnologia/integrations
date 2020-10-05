@@ -57,27 +57,27 @@ class TokenController extends Base
      */
     public function __construct()
     {
-        $this->title = __('facilitador::redirect_rules.controller.title');
-        $this->description = __('facilitador::redirect_rules.controller.description');
+        $this->title = __('pedreiro::redirect_rules.controller.title');
+        $this->description = __('pedreiro::redirect_rules.controller.description');
         $this->columns = [
-            __('facilitador::redirect_rules.controller.column.rule') => 'getAdminTitleAttribute',
+            __('pedreiro::redirect_rules.controller.column.rule') => 'getAdminTitleAttribute',
         ];
         $this->search = [
             'from' => [
-                'label' => __('facilitador::redirect_rules.controller.search.from'),
+                'label' => __('pedreiro::redirect_rules.controller.search.from'),
                 'type' => 'text',
             ],
             'to' => [
-                'label' => __('facilitador::redirect_rules.controller.search.to'),
+                'label' => __('pedreiro::redirect_rules.controller.search.to'),
                 'type' => 'text',
             ],
             'code' => [
-                'label' => __('facilitador::redirect_rules.controller.search.code'),
+                'label' => __('pedreiro::redirect_rules.controller.search.code'),
                 'type' => 'select',
                 'options' => 'Facilitador\Models\RedirectRule::getCodes()',
             ],
             'label' => [
-                'label' => __('facilitador::redirect_rules.controller.search.label'),
+                'label' => __('pedreiro::redirect_rules.controller.search.label'),
                 'type' => 'text',
             ],
         ];
