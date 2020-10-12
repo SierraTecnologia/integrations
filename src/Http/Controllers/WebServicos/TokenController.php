@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Integrations\Exceptions\Exception;
 use Integrations\Http\Controllers\Controller as Base;
 use Integrations\Models\Token;
-// use Facilitador\Http\Controllers\Admin\Base;
+// use Pedreiro\Http\Controllers\Admin\Base;
 use Yajra\Datatables\Datatables;
 
 class TokenController extends Base
