@@ -238,7 +238,7 @@ class IntegrationsProvider extends ServiceProvider
         Config::set(
             'logging.channels.sitec-integrations', [
             'driver' => 'single',
-            'path' => storage_path('logs'.DIRECTORY_SEPARACTOR.'sitec-integrations.log'),
+            'path' => storage_path('logs'.DIRECTORY_SEPARATOR.'sitec-integrations.log'),
             'level' => env('APP_LOG_LEVEL', 'debug'),
             ]
         );
