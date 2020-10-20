@@ -98,7 +98,7 @@ class IntegrationsProvider extends ServiceProvider
         /**
          * Transmissor; Routes
          */
-        $this->loadRoutesForRiCa(__DIR__.'/../routes');
+        $this->loadRoutesForRiCa(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'routes');
         // Route::group(
         //     [
         //         'namespace' => '\Integrations\Http\Controllers',
@@ -191,7 +191,7 @@ class IntegrationsProvider extends ServiceProvider
         $this->publishes(
             [
             // Paths
-            $this->getPublishesPath('config/sitec') => config_path('sitec'),
+            $this->getPublishesPath('config'.DIRECTORY_SEPARATOR.'sitec') => config_path('sitec'),
             ], ['config',  'sitec', 'sitec-config']
         );
 
@@ -211,7 +211,7 @@ class IntegrationsProvider extends ServiceProvider
         $this->loadViewsFrom($viewsPath, 'integrations');
         $this->publishes(
             [
-            $viewsPath => base_path('resources/views/vendor/integrations'),
+            $viewsPath => base_path('resources'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'integrations'),
             ], ['views',  'sitec', 'sitec-views']
         );
     }
@@ -221,7 +221,7 @@ class IntegrationsProvider extends ServiceProvider
         // Publish lanaguage files
         $this->publishes(
             [
-            $this->getResourcesPath('lang') => resource_path('lang/vendor/integrations')
+            $this->getResourcesPath('lang') => resource_path('lang'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'integrations')
             ], ['lang',  'sitec', 'sitec-lang', 'translations']
         );
 
@@ -238,7 +238,7 @@ class IntegrationsProvider extends ServiceProvider
         Config::set(
             'logging.channels.sitec-integrations', [
             'driver' => 'single',
-            'path' => storage_path('logs/sitec-integrations.log'),
+            'path' => storage_path('logs'.DIRECTORY_SEPARACTOR.'sitec-integrations.log'),
             'level' => env('APP_LOG_LEVEL', 'debug'),
             ]
         );
