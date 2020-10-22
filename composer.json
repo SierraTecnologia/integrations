@@ -23,7 +23,7 @@
     ],
     "require": {
         "php": "^7.4",
-        "ricasolucoes/atlassian": "dev-master",
+        "ricasolucoes/atlassian": "^0.4.0",
         "sierratecnologia/muleta": "^0.4.0",
         "league/flysystem-aws-s3-v3": "*",
         "league/plates": "^3.1|^4.0",
