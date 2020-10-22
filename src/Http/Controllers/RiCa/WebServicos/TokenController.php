@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Http\Controllers\WebServicos;
+namespace Integrations\Http\Controllers\RiCa\WebServicos;
 
 use Illuminate\Http\Request;
 use Integrations\Exceptions\Exception;
