@@ -17,7 +17,7 @@
                 <td>Created at</td>
                 <?php
                 $user = \Auth::user();
-                if($user && $user->isRoot()) {
+                if ($user && $user->isRoot()) {
                     echo '<td>Client</td>';
                 }
                 ?>
@@ -43,8 +43,8 @@
                 <td>{{$order->created_at->format('d/m/Y h:i:s')}}</td>
                 <?php
                 $user = \Auth::user();
-                if($user && $user->isRoot() && is_object($order->user)) {
-                    echo '<td><a href="'.route('admin.users.show', $order->user->id).'">'.$order->user->name.'</td>';
+                if ($user && $user->isRoot() && is_object($order->user)) {
+                    echo '<td><a href="'.route('admin.porteiro.users.show', $order->user->id).'">'.$order->user->name.'</td>';
                 }
                 ?>
                 <td>
