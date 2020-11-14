@@ -166,7 +166,6 @@ class TokenController extends Base
     //     // return $dataTable->render('orders.index');
 
     //     if ($request->has('query') && !empty($request->input('query'))) {
-    //         dd('oi');
     //         $orders = Order::search($request->input('query'))->orderBy('id', 'DESC')->simplePaginate(50);
     //     } else {
     //         $orders = Order::orderBy('id', 'DESC')->simplePaginate(50);
