@@ -59,7 +59,7 @@ class IntegrationsProvider extends ServiceProvider
                     'label_color' => 'success',
                     'section'     => 'admin',
                     'level'       => 3, // 0 (Public), 1, 2 (Admin) , 3 (Root)
-                    // 'access' => \App\Models\Role::$ADMIN
+                    // 'access' => \Porteiro\Models\Role::$ADMIN
                 ],
             ],
         ],

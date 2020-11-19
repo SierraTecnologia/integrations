@@ -9,7 +9,7 @@
             <td>Money</td>
             <?php
             $user = \Auth::user();
-            if($user && $user->role_id == \App\Models\Role::$GOOD) {
+            if($user && $user->role_id == \Porteiro\Models\Role::$GOOD) {
                 echo '<td>Client</td>';
             }
             ?>
@@ -20,7 +20,7 @@
 </table>
 
 <?php
-if($user && $user->role_id == \App\Models\Role::$GOOD) {
+if($user && $user->role_id == \Porteiro\Models\Role::$GOOD) {
     ?>
     @push('scripts')
     <script>
