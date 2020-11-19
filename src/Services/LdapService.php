@@ -2,7 +2,7 @@
 
 namespace Integrations\Services;
 
-use App\Models\Role;
+use Porteiro\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
@@ -404,7 +404,7 @@ class LdapService
      * Check a role against an array of group names to see if it matches.
      * Checked against role 'external_auth_id' if set otherwise the name of the role.
      *
-     * @param  \App\Models\Role $role
+     * @param  \Porteiro\Models\Role $role
      * @param  array            $groupNames
      * @return bool
      */
