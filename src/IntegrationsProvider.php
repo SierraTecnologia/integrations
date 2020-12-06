@@ -41,7 +41,7 @@ class IntegrationsProvider extends ServiceProvider
      * Rotas do Menu
      */
     public static $menuItens = [
-        'Config|425' => [
+        // 'Config|425' => [
             [
                 'text' => 'Integrações',
                 'icon' => 'fas fa-fw fa-search',
@@ -62,7 +62,7 @@ class IntegrationsProvider extends ServiceProvider
                     // 'access' => \Porteiro\Models\Role::$ADMIN
                 ],
             ],
-        ],
+        // ],
     ];
 
     /**

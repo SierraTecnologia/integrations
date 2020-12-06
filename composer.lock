@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0c7eb4b5c4fd7c65b7f9e8da8b8b100",
+    "content-hash": "1ee3890ddd4278effa4857f62b38ff7b",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1339,6 +1339,57 @@
                 "url"
             ],
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "hubspot/hubspot-php",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HubSpot/hubspot-php.git",
+                "reference": "6936cbcea491fce09bcc379d99afde251f270957"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HubSpot/hubspot-php/zipball/6936cbcea491fce09bcc379d99afde251f270957",
+                "reference": "6936cbcea491fce09bcc379d99afde251f270957",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "~6.0 | ^7.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.13",
+                "phpspec/phpspec": "^3.4",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SevenShores\\Hubspot\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Winchester",
+                    "email": "fungku@gmail.com",
+                    "homepage": "http://ryanwinchester.ca"
+                }
+            ],
+            "description": "HubSpot PHP API client",
+            "keywords": [
+                "api",
+                "hubspot"
+            ],
+            "time": "2020-10-23T10:40:40+00:00"
         },
         {
             "name": "illuminate/collections",
@@ -4160,7 +4211,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Crypto",
-                "reference": "bf9f18c3a7c8f4b3de361e211c04b29074ecfa9f"
+                "reference": "aaafc766bad8da500f871d2d977570c73a8d2219"
             },
             "require": {
                 "defuse/php-encryption": "^2.2",
@@ -4230,7 +4281,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Muleta",
-                "reference": "49fc47c3471f0e067fabccb0d1458b3fdc4a9818"
+                "reference": "8c996d7fd564552cc28d94a432f03741c6ecccb6"
             },
             "require": {
                 "laravel/helpers": "^1.1",

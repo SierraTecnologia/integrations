@@ -7,16 +7,6 @@ use Log;
 use App\Models\User;
 
 use Integrations\Models\Token;
-
-use Integrations\Connectors\Github\Github;
-use Integrations\Connectors\Amazon\Amazon;
-use Integrations\Connectors\Gitlab\Gitlab;
-use Integrations\Connectors\Jira\Jira;
-use Integrations\Connectors\Novare\Novare;
-use Integrations\Connectors\Pipedrive\Pipedrive;
-use Integrations\Connectors\Sentry\Sentry;
-use Integrations\Connectors\Testlink\Testlink;
-use Integrations\Connectors\Zoho\Zoho;
 use Support\Components\Coders\Parser\ParseClass;
 use Muleta\Utils\Debugger\ErrorHelper;
 use Integrations\Models\Integration as IntegrationModel;
