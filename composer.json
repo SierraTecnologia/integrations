@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^7.2|^8.0",
         "aws/aws-sdk-php": "^3.0",
         "cache/filesystem-adapter": ">=1.0",
         "fideloper/proxy": ">=4.0",
