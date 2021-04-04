@@ -32,7 +32,7 @@ class IntegrationsProvider extends ServiceProvider
 
     public static $providers = [
 
-        \Support\SupportProviderService::class,
+        // \Support\SupportProviderService::class,
 
         
     ];
@@ -48,7 +48,8 @@ class IntegrationsProvider extends ServiceProvider
                 'icon_color' => "blue",
                 'label_color' => "success",
                 'section'     => 'admin',
-                'level'       => 3, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+                'order' => 2200,
+                'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
             ],
             'Integrações' => [
                 [
@@ -58,7 +59,8 @@ class IntegrationsProvider extends ServiceProvider
                     'icon_color'  => 'blue',
                     'label_color' => 'success',
                     'section'     => 'admin',
-                    'level'       => 3, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+                    'order' => 2250,
+                    'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
                     // 'access' => \Porteiro\Models\Role::$ADMIN
                 ],
             ],
