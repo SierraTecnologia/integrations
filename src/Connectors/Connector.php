@@ -126,7 +126,7 @@ class Connector
                         try {
                             throw new Exception('Não deveria ter arquivo nessa pasta: '.$realPath . $item);
                         } catch(Exception $e) {
-                            dd($e->getTrace(), $e->getMessage(), 'Deu Ruim Integrations');
+                            dd('Connector', $e->getTrace(), $e->getMessage(), 'Deu Ruim Integrations');
                         }
                     
                     }
