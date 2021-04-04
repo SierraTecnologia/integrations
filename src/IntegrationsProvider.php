@@ -54,7 +54,7 @@ class IntegrationsProvider extends ServiceProvider
             'Integrações' => [
                 [
                     'text'        => 'Tokens',
-                    'route'       => 'rica.integrations.webservicos.tokens.index',
+                    'route'       => 'admin.integrations.tokens.index',
                     'icon'        => 'fas fa-fw fa-search',
                     'icon_color'  => 'blue',
                     'label_color' => 'success',

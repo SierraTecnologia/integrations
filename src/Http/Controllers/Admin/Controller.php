@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Http\Controllers\RiCa;
+namespace Integrations\Http\Controllers\Admin;
 
 use Integrations\Http\Controllers\Controller as BaseController;
 
