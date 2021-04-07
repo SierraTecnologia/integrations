@@ -53,7 +53,13 @@ class Token extends Base
     );
 
     public $formFields = [
-        ['name' => 'account_id', 'label' => 'Account', 'type' => 'select', 'relationship' => 'account'],
+        [
+            'name' => 'account_id',
+            'label' => 'Account',
+            'type' => 'select',
+            'relationship' => 'account',
+            'relFieldName' => 'email',
+        ],
         [
             'name' => 'token',
             'label' => 'Token',
