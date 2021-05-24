@@ -13,6 +13,17 @@ class CreateIntegrationsTables extends Migration
      */
     public function up()
     {
+
+        if (!\Muleta\Modules\Features\Resources\FeatureHelper::hasActiveFeature(
+            [
+                'integrations',
+                'services',
+            ]
+        )){
+            \Log::debug('Migration Ignorada por causa de Feature');
+            return ;
+        }
+
         Schema::create(
             'integrations',
             function (Blueprint $table) {

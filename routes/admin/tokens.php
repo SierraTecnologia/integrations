@@ -1,5 +1,13 @@
 <?php
 
-Route::resource('/tokens', 'TokenController')->parameters([
-    'tokens' => 'id'
-]);
+
+if (\Muleta\Modules\Features\Resources\FeatureHelper::hasActiveFeature(
+    [
+        'integrations',
+        'services',
+    ]
+)){
+    Route::resource('/tokens', 'TokenController')->parameters([
+        'tokens' => 'id'
+    ]);
+}

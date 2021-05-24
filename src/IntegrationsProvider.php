@@ -48,6 +48,7 @@ class IntegrationsProvider extends ServiceProvider
                 'icon_color' => "blue",
                 'label_color' => "success",
                 'section'     => 'admin',
+                'feature' => 'integrations',
                 'order' => 2200,
                 'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
             ],
@@ -59,6 +60,7 @@ class IntegrationsProvider extends ServiceProvider
                     'icon_color'  => 'blue',
                     'label_color' => 'success',
                     'section'     => 'admin',
+                    'feature' => 'integrations',
                     'order' => 2250,
                     'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
                     // 'access' => \Porteiro\Models\Role::$ADMIN
@@ -119,7 +121,15 @@ class IntegrationsProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom($this->getPublishesPath('config'.DIRECTORY_SEPARATOR.'sitec'.DIRECTORY_SEPARATOR.'integrations.php'), 'sitec.integrations');
+        // Register Configs
+        $this->mergeConfigFrom(
+            $this->getPublishesPath('config'.DIRECTORY_SEPARATOR.'integrations.php'),
+            'integrations'
+        );
+        $this->mergeConfigFrom(
+            $this->getPublishesPath('config'.DIRECTORY_SEPARATOR.'services.php'),
+            'services'
+        );
         
 
         $this->setProviders();
@@ -192,9 +202,9 @@ class IntegrationsProvider extends ServiceProvider
         // Publish config files
         $this->publishes(
             [
-            // Paths
-            $this->getPublishesPath('config'.DIRECTORY_SEPARATOR.'sitec') => config_path('sitec'),
-            ], ['config',  'sitec', 'sitec-config']
+                $this->getPublishesPath('config'.DIRECTORY_SEPARATOR.'integrations.php') => config_path('integrations.php'),
+                $this->getPublishesPath('config'.DIRECTORY_SEPARATOR.'services.php') => config_path('services.php'),
+            ], ['config',  'sitec', 'sitec-config', 'integrations', 'integrations-config']
         );
 
         // // Publish integrations css and js to public directory
