@@ -3,7 +3,7 @@
 	- $sidebar->add(Former::listing('Stalker\Models\Video'))
 	- $sidebar->add(Former::listing('Stalker\Models\Photo')->take(30))
 
-	!= View::make('support::shared.form._header', $__data)->render()
+	!= View::make('pedreiro::shared.form._header', $__data)->render()
 
 	%fieldset
 		.legend= empty($item) ? 'New' : 'Edit'
@@ -21,7 +21,7 @@
 		!= Former::text('url', "URL")->blockHelp('An external link to the article.')
 
 	%fieldset
-		!= View::make('support::shared.form._display_module', $__data)->render()
+		!= View::make('pedreiro::shared.form._display_module', $__data)->render()
 		!= Former::boolean('featured')->blockHelp('Featured articles will show up in the ticker on the home page.')
 
-	!= View::make('support::shared.form._footer', $__data)->render()
+	!= View::make('pedreiro::shared.form._footer', $__data)->render()

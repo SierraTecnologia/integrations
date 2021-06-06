@@ -52,6 +52,56 @@ class Token extends Base
         ],
     );
 
+    public $formFields = [
+        [
+            'name' => 'account_id',
+            'label' => 'Account',
+            'type' => 'select',
+            'relationship' => 'account',
+            'relFieldName' => 'email',
+        ],
+        [
+            'name' => 'token',
+            'label' => 'Token',
+            'type' => 'text'
+        ],
+        [
+            'name' => 'obs',
+            'label' => 'Obs',
+            'type' => 'textarea'
+        ],
+        [
+            'name' => 'scopes',
+            'label' => 'Scopes',
+            'type' => 'text'
+        ],
+        // [
+        //     'name' => 'slug',
+        //     'label' => 'slug',
+        //     'type' => 'text'
+        // ],
+        [
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'checkbox'
+        ],
+        // [
+        //     'name' => 'status',
+        //     'label' => 'Enter your content here',
+        //     'type' => 'textarea'
+        // ],
+        // ['name' => 'publish_on', 'label' => 'Publish Date', 'type' => 'date'],
+        // ['name' => 'tags', 'label' => 'Tags', 'type' => 'select_multiple', 'relationship' => 'tags'],
+    ];
+
+    public $indexFields = [
+        'account_id',
+        'token',
+        'obs',
+        'scopes',
+        'status',
+        // 'status'
+    ];
 
     /**
      * Relation for the user that created this entity.

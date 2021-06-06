@@ -7,23 +7,13 @@ use Log;
 use App\Models\User;
 
 use Integrations\Models\Token;
-
-use Integrations\Connectors\Github\Github;
-use Integrations\Connectors\Amazon\Amazon;
-use Integrations\Connectors\Gitlab\Gitlab;
-use Integrations\Connectors\Jira\Jira;
-use Integrations\Connectors\Novare\Novare;
-use Integrations\Connectors\Pipedrive\Pipedrive;
-use Integrations\Connectors\Sentry\Sentry;
-use Integrations\Connectors\Testlink\Testlink;
-use Integrations\Connectors\Zoho\Zoho;
 use Support\Components\Coders\Parser\ParseClass;
 use Muleta\Utils\Debugger\ErrorHelper;
 use Integrations\Models\Integration as IntegrationModel;
 use ReflectionGenerator;
 use Exception;
 use Muleta\Utils\Extratores\ClasserExtractor;
-use Support\Contracts\Output\OutputableTrait;
+use Muleta\Contracts\Output\OutputableTrait;
 
 class Connector
 {
@@ -136,7 +126,7 @@ class Connector
                         try {
                             throw new Exception('Não deveria ter arquivo nessa pasta: '.$realPath . $item);
                         } catch(Exception $e) {
-                            dd($e->getTrace(), $e->getMessage(), 'Deu Ruim Integrations');
+                            dd('Connector', $e->getTrace(), $e->getMessage(), 'Deu Ruim Integrations');
                         }
                     
                     }
