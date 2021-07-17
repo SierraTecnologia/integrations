@@ -1,0 +1,3 @@
+curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+     -H "Authorization: Bearer MpAVU137FKpBCxrHozR-by9jwTIUPYLHg39R_RKY" \
+     -H "Content-Type:application/json"
