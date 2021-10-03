@@ -1,15 +1,17 @@
 <?php
+/**
+ * @todo
+ */
 
-namespace Integrations\Connectors\Pipedrive;
+namespace Integrations\Connectors\Hubspot;
 
 use Log;
-use App\Models\User;
 
-class Update extends Pipedrive
+class Update extends Hubspot
 {
     public function organization(Organization $organization)
     {
-        // Also simple to update any Pipedrive resource value
+        // Also simple to update any Hubspot resource value
         $organization = $this->_connection->organizations->update(
             1,
             [

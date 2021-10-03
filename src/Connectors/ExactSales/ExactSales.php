@@ -13,7 +13,7 @@ class ExactSales extends Connector
     protected function getConnection($token = false)
     {
         $token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
-        return new Pipedrive($token);
+        return new ExactSales($token);
     }
 
     // private $config;
