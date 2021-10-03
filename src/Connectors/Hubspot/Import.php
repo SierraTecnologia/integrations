@@ -1,11 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Pipedrive;
+namespace Integrations\Connectors\Hubspot;
 
 use Log;
-use App\Models\User;
 
-class Import extends Pipedrive
+class Import extends Hubspot
 {
     public function projects()
     {

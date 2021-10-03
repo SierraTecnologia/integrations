@@ -4,7 +4,6 @@ namespace Integrations\Connectors\Hubspot;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
-use App\Models\User;
 use Integrations\Connectors\Connector;
 
 class Hubspot extends Connector
@@ -13,6 +12,6 @@ class Hubspot extends Connector
     protected function getConnection($token = false)
     {
         $token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
-        return new Pipedrive($token);
+        return new Hubspot($token);
     }
 }

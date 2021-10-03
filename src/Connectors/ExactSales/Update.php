@@ -1,15 +1,18 @@
 <?php
+/**
+ * @todo
+ */
 
-namespace Integrations\Connectors\Pipedrive;
+namespace Integrations\Connectors\ExactSales;
 
 use Log;
-use App\Models\User;
+use App\Models\Organization;
 
-class Update extends Pipedrive
+class Update extends ExactSales
 {
     public function organization(Organization $organization)
     {
-        // Also simple to update any Pipedrive resource value
+        // Also simple to update any ExactSales resource value
         $organization = $this->_connection->organizations->update(
             1,
             [

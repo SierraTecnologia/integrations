@@ -1,11 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Pipedrive;
+namespace Integrations\Connectors\ExactSales;
 
 use Log;
-use App\Models\User;
 
-class Import extends Pipedrive
+class Import extends ExactSales
 {
     public function projects()
     {

@@ -1,18 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Pipedrive;
+namespace Integrations\Connectors\ExactSales;
 
 use Log;
 use App\Models\User;
 
-class Create extends Pipedrive
+class Create extends ExactSales
 {
-    public function project(Project $project)
-    {
-        $arrayFromProject = array(
-            'description' => $project->description,
-            'issues_enabled' => false
-        );
-        $project = $client->api('projects')->create($project->name, $arrayFromProject);
-    }
+    
 }

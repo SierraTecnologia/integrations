@@ -1,18 +1,10 @@
 <?php
 
-namespace Integrations\Connectors\Pipedrive;
+namespace Integrations\Connectors\Hubspot;
 
 use Log;
-use App\Models\User;
 
-class Create extends Pipedrive
+class Create extends Hubspot
 {
-    public function project(Project $project)
-    {
-        $arrayFromProject = array(
-            'description' => $project->description,
-            'issues_enabled' => false
-        );
-        $project = $client->api('projects')->create($project->name, $arrayFromProject);
-    }
+    
 }
