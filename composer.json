@@ -28,7 +28,7 @@
         "fideloper/proxy": ">=4.0",
         "geerlingguy/ping": "*",
         "google/photos-library": ">=1.4",
-        "guzzlehttp/guzzle": "^6.0 || ^7.0",
+        "guzzlehttp/guzzle": "^6.0|^7.0|^8.0",
         "hubspot/hubspot-php": "^3.0",
         "league/climate": ">=3.4",
         "league/csv": "^9.0|^8.0|^7.1",
