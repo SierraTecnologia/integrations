@@ -54,7 +54,7 @@ class Connector
         $this->error = $errorMessage;
         $this->errorCode = $code;
 
-        
+
         var_dump($errorMessage);
         throw new \Exception($errorMessage);
     }
@@ -94,11 +94,11 @@ class Connector
         );
         return $integration->id;
     }
-    
+
     public static function registerAll()
     {
         $realPath = __DIR__.'/';
-        
+
         collect(scandir($realPath))
             ->each(
                 function ($item) use ($realPath) {
@@ -106,7 +106,7 @@ class Connector
                     }
                     if (is_dir($realPath . $item)) {
                         $modelName = __NAMESPACE__.'\\'.$item.'\\'.$item;
-                   
+
                         IntegrationModel::createIfNotExistAndReturn(
                             [
                             'id' =>  call_user_func(array($modelName, 'getPrimary')),
@@ -128,7 +128,7 @@ class Connector
                         } catch(Exception $e) {
                             dd('Connector', $e->getTrace(), $e->getMessage(), 'Deu Ruim Integrations');
                         }
-                    
+
                     }
                 }
             );

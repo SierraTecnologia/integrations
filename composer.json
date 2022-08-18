@@ -37,6 +37,7 @@
         "league/plates": "^3.1|^4.0",
         "m4tthumphrey/php-gitlab-api": "*",
         "raiym/instagram-php-scraper": ">=0.9.10",
+        "phpfastcache/phpfastcache": "^8.1|^9.0",
         "ricasolucoes/atlassian": "dev-master",
         "sabre/xml": "*",
         "sierratecnologia/muleta": "dev-master",
