@@ -4,7 +4,7 @@ namespace Integrations\Connectors\Gitlab;
 
 use Log;
 use App\Models\User;
-use Fabrica\Models\Code\Project;
+use Finder\Models\Code\Project;
 use Fabrica\Bundle\CoreBundle\EventDispatcher\FabricaEvents;
 use Fabrica\Bundle\CoreBundle\EventDispatcher\Event\ProjectEvent;
 
