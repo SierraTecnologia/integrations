@@ -21,7 +21,7 @@
   }
 </style>
 <div class="card uper">
-  <div class="card-header">
+  <div class="box-header panel-heading card-header">
     Edit Order
   </div>
   <div class="card-body">

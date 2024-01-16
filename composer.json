@@ -28,7 +28,7 @@
         "fideloper/proxy": ">=4.0",
         "geerlingguy/ping": "*",
         "google/photos-library": ">=1.4",
-        "guzzlehttp/guzzle": "^6.0 || ^7.0",
+        "guzzlehttp/guzzle": "^6.0|^7.0|^8.0",
         "hubspot/hubspot-php": "^3.0",
         "league/climate": ">=3.4",
         "league/csv": "^9.0|^8.0|^7.1",
@@ -37,7 +37,12 @@
         "league/plates": "^3.1|^4.0",
         "m4tthumphrey/php-gitlab-api": "*",
         "raiym/instagram-php-scraper": ">=0.9.10",
+<<<<<<< HEAD
         "ricasolucoes/atlassian": "^0.4.0",
+=======
+        "phpfastcache/phpfastcache": "^8.1|^9.0",
+        "ricasolucoes/atlassian": "dev-master",
+>>>>>>> master
         "sabre/xml": "*",
         "sierratecnologia/muleta": "^0.4.0",
         "srmklive/flysystem-dropbox-v2": "*",
@@ -72,7 +77,11 @@
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "phpro/grumphp": true,
+            "php-http/discovery": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
