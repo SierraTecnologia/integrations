@@ -1,0 +1,16 @@
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+    level: 5
+    paths:
+        - src
+    excludePaths:
+        - src/Console/Kernel.php
+        - src/Exceptions/Handler.php
+    ignoreErrors:
+        - '#Unsafe usage of new static#'
+        - '#Access to an undefined property#'
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    reportUnmatchedIgnoredErrors: false
