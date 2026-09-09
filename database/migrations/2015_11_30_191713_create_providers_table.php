@@ -12,8 +12,7 @@ class CreateProvidersTable extends Migration
      */
     public function up()
     {
-        Schema::create(
-            'providers', function (Blueprint $table) {
+        Schema::hasTable('providers') || Schema::create('providers', function (Blueprint $table) {
 
                 // Set the storage engine and primary key
                 $table->engine = 'InnoDB';

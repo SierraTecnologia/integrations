@@ -24,8 +24,7 @@ class CreateIntegrationsTables extends Migration
             return ;
         }
 
-        Schema::create(
-            'integrations',
+        Schema::hasTable('integrations') || Schema::create('integrations',
             function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id')->unsigned();
@@ -37,8 +36,7 @@ class CreateIntegrationsTables extends Migration
                 $table->softDeletes();
             }
         );
-        Schema::create(
-            'services',
+        Schema::hasTable('services') || Schema::create('services',
             function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id')->unsigned();
@@ -53,8 +51,7 @@ class CreateIntegrationsTables extends Migration
         /**
          * Account
          */
-        Schema::create(
-            'accounts',
+        Schema::hasTable('accounts') || Schema::create('accounts',
             function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id')->unsigned();
@@ -79,8 +76,7 @@ class CreateIntegrationsTables extends Migration
         /**
          * Accountables
          */
-        Schema::create(
-            'accountables',
+        Schema::hasTable('accountables') || Schema::create('accountables',
             function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id')->unsigned();
@@ -102,8 +98,7 @@ class CreateIntegrationsTables extends Migration
         /**
          * Tokens
          */
-        Schema::create(
-            'tokens',
+        Schema::hasTable('tokens') || Schema::create('tokens',
             function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->string('token');
