@@ -2,10 +2,11 @@
 
 namespace Integrations\Models;
 
-use Pedreiro\Models\Base;
+use Illuminate\Database\Eloquent\Model;
 
-class Service extends Base
+class Service extends Model
 {
+    public $rules = [];
     /**
      * The attributes that are mass assignable.
      *

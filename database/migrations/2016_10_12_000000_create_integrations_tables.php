@@ -3,6 +3,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateIntegrationsTables extends Migration
 {
@@ -14,7 +15,7 @@ class CreateIntegrationsTables extends Migration
     public function up()
     {
 
-        if (!\Muleta\Modules\Features\Resources\FeatureHelper::hasActiveFeature(
+        if (!app()->runningUnitTests() && class_exists(\Muleta\Modules\Features\Resources\FeatureHelper::class) && !\Muleta\Modules\Features\Resources\FeatureHelper::hasActiveFeature(
             [
                 'integrations',
                 'services',
@@ -30,6 +31,8 @@ class CreateIntegrationsTables extends Migration
                 $table->bigIncrements('id')->unsigned();
                 $table->string('name', 255)->nullable();
                 $table->string('code');
+                $table->string('url')->nullable();
+                $table->text('description')->nullable();
                 $table->integer('status')->default(1);
                 $table->unique(['code']);
                 $table->timestamps();
@@ -41,6 +44,7 @@ class CreateIntegrationsTables extends Migration
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id')->unsigned();
                 $table->string('name', 255)->nullable();
+                $table->text('description')->nullable();
                 $table->integer('status')->default(1);
                 $table->bigInteger('integration_id')->unsigned();
                 $table->timestamps();
@@ -66,12 +70,14 @@ class CreateIntegrationsTables extends Migration
                 $table->softDeletes();
             }
         );
-        Schema::table(
-            'accounts',
-            function (Blueprint $table) {
-                $table->foreign('integration_id')->references('id')->on('integrations');
-            }
-        );
+        if (Schema::hasTable('accounts') && Schema::hasTable('integrations')) {
+            Schema::table(
+                'accounts',
+                function (Blueprint $table) {
+                    $table->foreign('integration_id')->references('id')->on('integrations');
+                }
+            );
+        }
         
         /**
          * Accountables
@@ -88,12 +94,14 @@ class CreateIntegrationsTables extends Migration
                 $table->softDeletes();
             }
         );
-        Schema::table(
-            'accountables',
-            function (Blueprint $table) {
-                $table->foreign('account_id')->references('id')->on('accounts');
-            }
-        );
+        if (Schema::hasTable('accountables') && Schema::hasTable('accounts')) {
+            Schema::table(
+                'accountables',
+                function (Blueprint $table) {
+                    $table->foreign('account_id')->references('id')->on('accounts');
+                }
+            );
+        }
         
         /**
          * Tokens
@@ -110,12 +118,14 @@ class CreateIntegrationsTables extends Migration
                 $table->timestamps();
             }
         );
-        Schema::table(
-            'tokens',
-            function (Blueprint $table) {
-                $table->foreign('account_id')->references('id')->on('accounts');
-            }
-        );
+        if (Schema::hasTable('tokens') && Schema::hasTable('accounts')) {
+            Schema::table(
+                'tokens',
+                function (Blueprint $table) {
+                    $table->foreign('account_id')->references('id')->on('accounts');
+                }
+            );
+        }
     }
 
     /**

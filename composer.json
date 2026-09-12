@@ -43,6 +43,11 @@
             "Integrations\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Integrations\\Tests\\": "tests/"
+        }
+    },
     "scripts": {
         "psalm": "vendor/bin/psalm",
         "test": "vendor/bin/phpunit",
@@ -55,7 +60,7 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.68",
         "orchestra/testbench": "^11.0",
-        "phpunit/phpunit": "^12.0",
+        "phpunit/phpunit": "^13.0",
         "phpro/grumphp": "^2.12"
     },
     "config": {
@@ -67,6 +72,15 @@
             "php-http/discovery": true
         }
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../**",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
@@ -79,5 +93,5 @@
             ]
         }
     },
-    "version": "2.0.0"
+    "version": "2.2.0"
 }

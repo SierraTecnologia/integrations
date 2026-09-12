@@ -16,7 +16,7 @@ class Provider extends Model
      *
      * @var array
      */
-    protected $guarded = ['id', 'login_count', 'created_at', 'updated_at', 'deleted_at'];
+    protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * What should be returned when this model is converted to string.
