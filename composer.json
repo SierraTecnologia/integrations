@@ -23,13 +23,9 @@
     ],
     "require": {
         "php": "^8.3",
-        "aws/aws-sdk-php": "^3.394",
-        "geerlingguy/ping": "^1.2",
         "guzzlehttp/guzzle": "^7.10",
-        "hubspot/hubspot-php": "^5.4",
         "league/climate": "^3.12",
         "league/csv": "^9.28",
-        "league/flysystem-aws-s3-v3": "^3.35",
         "league/pipeline": "^1.1",
         "league/plates": "^3.6",
         "m4tthumphrey/php-gitlab-api": "^12.1",
@@ -37,6 +33,12 @@
         "ricasolucoes/atlassian": "^2.0",
         "sabre/xml": "^4.1",
         "sierratecnologia/muleta": "^2.0"
+    },
+    "suggest": {
+        "aws/aws-sdk-php": "^3.394 - Needed for AWS S3 and cloud integration services",
+        "geerlingguy/ping": "^1.2 - Needed for server ping/latency check tool",
+        "hubspot/hubspot-php": "^5.4 - Needed for HubSpot CRM connector",
+        "league/flysystem-aws-s3-v3": "^3.35 - Needed for AWS S3 Flysystem storage adapter"
     },
     "autoload": {
         "psr-4": {

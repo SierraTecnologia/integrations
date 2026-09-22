@@ -32,6 +32,9 @@ class Ping
 
     public function exec($ttl = 128, $timeOut = 60)
     {
+        if (!class_exists(\JJG\Ping::class)) {
+            throw new \RuntimeException("Package geerlingguy/ping is required to use Ping tool. Please run: composer require geerlingguy/ping");
+        }
 
         $ping = new PingLib($this->getHost());
         $ping->setTtl($ttl);
